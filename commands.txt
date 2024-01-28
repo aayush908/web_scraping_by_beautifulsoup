@@ -1,0 +1,233 @@
+pip install beautifulsoup4
+
+Import BeautifulSoup:
+from bs4 import BeautifulSoup
+
+Create a Soup Object from HTML:
+soup = BeautifulSoup(html_content, 'html.parser')
+
+
+Print Pretty HTML:
+print(soup.prettify())
+
+
+Access Tags:
+tag = soup.div  # Access the first <div> tag
+
+Find All Tags:
+tags = soup.find_all('a')  # Find all <a> tags
+
+Access Tag Attributes:
+attribute_value = tag['attribute_name']
+
+Get Text Inside Tag:
+text = tag.text
+
+
+Get Parent Tag:
+parent_tag = tag.parent
+
+Get Sibling Tags:
+sibling_tags = tag.find_next_siblings()
+
+Search for Tags by Class:
+tags_with_class = soup.find_all(class_='class_name')
+
+Search for Tags by ID:
+tag_with_id = soup.find(id='element_id')
+
+Search for Tags by CSS Selectors:
+tags_by_selector = soup.select('selector')
+
+Search for Tags by Attribute:
+tags_by_attribute = soup.find_all('tag', attrs={'attribute_name': 'attribute_value'})
+
+
+Modify Tag Text:
+tag.text = 'New Text'
+Remove Tag:
+
+  
+  
+tag.decompose()
+Extract Specific Attribute:
+
+  
+  
+attribute_value = tag.get('attribute_name')
+Check if Tag Exists:
+
+  
+  
+exists = soup.find('tag') is not None
+Check Tag Type:
+
+  
+  
+is_div = tag.name == 'div'
+Navigable String:
+
+  
+  
+string_content = tag.string
+Get Children Tags:
+
+  
+  
+children_tags = list(tag.children)
+Extract Text from Tag and Its Children:
+
+  
+  
+full_text = tag.get_text()
+Find Parent with Specific Class:
+
+  
+  
+parent_with_class = tag.find_parent(class_='class_name')
+Comment Tag:
+
+  
+  
+comment_tag = soup.new_string('<!-- This is a comment -->')
+Wrap Tag with Another Tag:
+
+  
+  
+new_tag = soup.new_tag('new_tag')
+tag.wrap(new_tag)
+Append New Tag:
+
+  
+  
+new_tag = soup.new_tag('new_tag')
+tag.append(new_tag)
+Replace Tag:
+
+  
+  
+new_tag = soup.new_tag('new_tag')
+tag.replace_with(new_tag)
+Extract Data from HTML Table:
+
+  
+  
+table = soup.find('table')
+rows = table.find_all('tr')
+Extract Data from Links in Paragraphs:
+
+  
+  
+paragraphs = soup.find_all('p')
+links_in_paragraphs = [p.a['href'] for p in paragraphs if p.a]
+Find All External Links:
+
+  
+  
+external_links = [a['href'] for a in soup.find_all('a', href=True) if 'http' in a['href']]
+
+Extract Data from a Specific Table Cell:
+
+  
+  
+cell_data = soup.find('table').find('tr').find_all('td')[0].text
+Extract Data from Nested Tags:
+
+  
+  
+nested_data = tag.parent.parent.a.text
+Check if Tag Contains a String:
+
+  
+  
+contains_string = 'keyword' in tag.text
+Find Tags with Specific Text:
+
+  
+  
+tags_with_text = soup.find_all('tag', text='specific_text')
+Get Attribute Values from Multiple Tags:
+
+  
+  
+attribute_values = [tag['attribute_name'] for tag in soup.find_all('tag')]
+Find All Tags with Specific Attribute:
+
+  
+  
+tags_with_attribute = soup.find_all('tag', {'attribute_name': 'attribute_value'})
+Extract Data from a Nested List:
+
+  
+  
+nested_list_data = soup.find('ul').find_all('li')[1].text
+Extract Data from Script Tags:
+
+  
+  
+script_data = soup.find('script').string
+Find Next Sibling with Specific Class:
+
+  
+  
+next_sibling_with_class = tag.find_next_sibling(class_='class_name')
+Find Tags with Specific Attribute and Value:
+
+  
+  
+tags_with_specific_attribute = soup.find_all('tag', attrs={'attribute_name': 'attribute_value'})
+Search for Tags Inside Comments:
+
+  
+  
+comment_tags = soup.find_all(string=lambda text: isinstance(text, Comment))
+Modify Tag Attributes:
+
+  
+  
+tag['new_attribute'] = 'new_value'
+Find All Tags with Specific Text Pattern:
+
+  
+  
+import re
+pattern = re.compile(r'specific_pattern')
+tags_with_pattern = soup.find_all(text=pattern)
+Navigate to the Parent of a Tag:
+
+  
+  
+parent_tag = tag.find_parent('parent_tag')
+Find Tags with Specific Attribute or Attribute Not Present:
+
+  
+  
+tags_with_attribute_or_none = soup.find_all('tag', {'attribute_name': 'attribute_value'} | {'attribute_name': None})
+Find All Images with a Specific Class:
+
+  
+  
+images_with_class = soup.find_all('img', class_='specific_class')
+Extract Data from a Definition List (dl):
+
+  
+  
+definitions = {dt.text: dd.text for dt, dd in zip(soup.find_all('dt'), soup.find_all('dd'))}
+Extract Data from a Span Tag with a Specific Class:
+
+  
+  
+span_data = soup.find('span', class_='specific_class').text
+Extract Data from a Specific Attribute of All Tags:
+
+  
+  
+attribute_data = [tag['specific_attribute'] for tag in soup.find_all('tag', {'specific_attribute': True})]
+Find Tags Using a Custom Function:
+
+  
+  
+def custom_function(tag):
+    return tag.name == 'div' and 'specific_text' in tag.text.lower()
+
+custom_tags = soup.find_all(custom_function)
