@@ -18,14 +18,20 @@ soup1 = BeautifulSoup(html_doc1 , 'html.parser')
 
 # for i in soup1.find_all("a"):
 #     print(i.get("href"))
-# print(soup1.select("div.container"))
-ultag = soup1.new_tag("ul")
-litag = soup1.new_tag("li")
-litag.string = "about"
-ultag.append(litag)
+# # print(soup1.select("div.container"))
+# ultag = soup1.new_tag("ul")
+# litag = soup1.new_tag("li")
+# litag.string = "about"
+# ultag.append(litag)
 
-soup1.html.body.insert(0 , ultag)
+# soup1.html.body.insert(0 , ultag)
 
-with open("data/modified.html" , "w") as f:
-    f.write(str(soup1))
+# with open("data/modified.html" , "w") as f:
+#     f.write(str(soup1))
     
+def has_class_but_not_id(tag):
+    return not tag.has_attr("class") and not tag.has_attr("id")
+
+results = soup1.find_all(has_class_but_not_id)
+for result in results:
+    print(result , "\n \n")
