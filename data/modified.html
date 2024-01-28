@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<!-- Bootstrap CSS -->
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"/>
+<title> BlogHome </title>
+<style>
+    body{
+      background-color: #4A4633;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+  }
+
+  .social-icons {
+      margin-top: 10px;
+  }
+
+  .social-icons a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #fff;
+  }
+
+  .designer-name {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #fff;
+  }
+
+  #login {
+  padding: 15px 30px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  transition: 0.5s;
+  background: #1e1e1e;
+  color: greenyellow;
+  box-shadow: 0 0 10px #363636, inset 0 0 10px #363636;
+}
+
+#login:hover {
+  animation: a 0.5s 1 linear;
+}
+
+@keyframes a {
+  0% {
+    transform: scale(0.7, 1.3);
+  }
+
+  25% {
+    transform: scale(1.3, 0.7);
+  }
+
+  50% {
+    transform: scale(0.7, 1.3);
+  }
+
+  75% {
+    transform: scale(1.3, 0.7);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+
+
+#hover {
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
+  background: #fff;
+  border: none;
+  border-radius: 50px;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#hover:hover {
+  box-shadow: inset 0 0 0 4px #ef476f, 
+              inset 0 0 0 8px #ffd166, 
+              inset 0 0 0 12px #06d6a0,
+              inset 0 0 0 16px #118ab2;
+  background: #073b4c;
+  color: #fff;
+}
+#back {
+  width: 100%;
+  height: 100%;
+  background: rgb(85,31,89);
+background: linear-gradient(90deg, rgba(85,31,89,1) 0%, rgba(97,150,150,1) 53%, rgba(198,154,219,1) 93%);
+ 
+ 
+ 
+}
+
+
+#pattern {
+  width: 100%;
+  height: 100%;
+  --s: 37px; /* control the size */
+
+  --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
+  --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+  --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+  --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+  background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
+    var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
+    var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+  background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+}
+
+
+    
+    </style>
+</head>
+<body id="back"><ul><li>about</li></ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="pattern">
+<a class="navbar-brand" href="/" id="hover">QuickLoom</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item active">
+<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/blog">Blog</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/about">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="admin">Admin</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/contact">Contact</a>
+</li>
+</ul>
+<form action="/search" class="form-inline my-2 my-lg-0 mx-3" method="get">
+<input aria-label="Search" class="form-control mr-sm-2" id="query" name="query" placeholder="Search" type="search"/>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></form>
+<!-- <a href="/admin" role="button" target="_blank" class="btn btn-outline-success m-2 my-sm-0"> Admin Panel </a> -->
+<!-- Button to  trigger SignUp modal -->
+<!-- Button to  trigger Login modal -->
+<button class="btn btn-success mr-2" data-target="#loginModal" data-toggle="modal" id="login" type="button">
+               Login
+               </button>
+<button class="btn btn-success mr-2" data-target="#signupModal" data-toggle="modal" id="login" type="button">
+               SignUp
+               </button>
+</div>
+</nav>
+<main>
+<!-- SignUp Modal -->
+<div aria-hidden="true" aria-labelledby="signupModal" class="modal fade" id="signupModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="signupModalTitle">SignUp Here</h5>
+<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<form action="/signup" method="post">
+<div class="form-group">
+<label for="username">Username</label>
+<input class="form-control" id="username" name="username" placeholder="Choose a unique username" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="fname">First Name</label>
+<input class="form-control" id="fname" name="fname" placeholder="Enter Your First Name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="lname">Last Name</label>
+<input class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email address</label>
+<input class="form-control" id="email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="pass1">Choose a password</label>
+<input class="form-control" id="pass1" name="pass1" placeholder="Choose Your Password" required="" type="password"/>
+</div>
+<div class="form-group">
+<label for="pass2">Confirm Password</label>
+<input class="form-control" id="pass2" name="pass2" placeholder="Enter your password again" required="" type="password"/>
+</div>
+<input name="csrfmiddlewaretoken" type="hidden" value="Xgvhw33nDRAMZQP0NhPqsN9F32zTfXLRo3XfqqG2UoWYWkn0BySJ24t2oRSEPVIm"/>
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+<style></style>
+<div class="container mt-4">
+<div class="carousel slide" data-ride="carousel" id="carouselExample">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img alt="Creative Idea 1" class="d-block w-100" src="/static/img/home.jpg "/>
+<div class="carousel-caption d-none d-md-block">
+<h5>Creative Idea 1</h5>
+<p>This is a brief description of the creative idea presented in the image.</p>
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Creative Idea 2" class="d-block w-100" src="https://source.unsplash.com/random/1600x550/?django,tech,programming"/>
+<div class="carousel-caption d-none d-md-block">
+<h5>Creative Idea 2</h5>
+<p>Another creative idea with a short description.</p>
+</div>
+</div>
+<!-- Add more carousel items as needed -->
+</div>
+<a class="carousel-control-prev" data-slide="prev" href="https://source.unsplash.com/random/1600x550/?moon , coding" role="button">
+<span aria-hidden="true" class="carousel-control-prev-icon"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" data-slide="next" href="#carouselExample" role="button">
+<span aria-hidden="true" class="carousel-control-next-icon"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+<div #f4e8d9="" :="" background-color="" class="container" style="">
+<div class="container">
+<div class="jumbotron my-3 mx-2 row-md-12">
+<h1 class="display-4">Welcome to QuickLoom</h1>
+<p class="lead">
+    This is quickloom.
+  </p>
+<!-- <div class="row-md-3">
+  <img class=""  src="static\img\quicklloom.png" alt="About 1" width="300" height="300" ></div> -->
+<hr class="my-4"/>
+<p>
+    It uses utility classes for typography and spacing to space content out
+    within the larger container.
+  </p>
+<button class="btn btn-success mr-2" data-target="#loginModal" data-toggle="modal" type="button">
+    LOGIN TO WRITE BLOGS
+  </button>
+</div>
+</div>
+<div class="container my-6">
+<h2>QuickLoom Specials</h2>
+<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative" style="background-color: #f4e8d9">
+<div class="col p-4 d-flex flex-column position-static my-4">
+<strong class="d-inline-block mb-2 text-primary">Article By Kandari</strong>
+<h3 class="mb-0">Vlog</h3>
+<div class="mb-1 text-muted"></div>
+<p class="card-text mb-auto"><p>I am Abhishek kandari.programmer</p></p>
+<div class="my-2">
+<a class="btn btn-primary" href="/blog/Game" role="button">Continue reading</a>
+</div>
+</div>
+</div>
+<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative" style="background-color: #f4e8d9">
+<div class="col p-4 d-flex flex-column position-static my-4">
+<strong class="d-inline-block mb-2 text-primary">Article By Mukul Sharma </strong>
+<h3 class="mb-0">Games</h3>
+<div class="mb-1 text-muted"></div>
+<p class="card-text mb-auto"><p>Gggg<strong>gggggg</strong></p></p>
+<div class="my-2">
+<a class="btn btn-primary" href="/blog/Games" role="button">Continue reading</a>
+</div>
+</div>
+</div>
+<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative" style="background-color: #f4e8d9">
+<div class="col p-4 d-flex flex-column position-static my-4">
+<strong class="d-inline-block mb-2 text-primary">Article By mukul sharma</strong>
+<h3 class="mb-0">best web series</h3>
+<div class="mb-1 text-muted"></div>
+<p class="card-text mb-auto"><p>the best web series </p></p>
+<div class="my-2">
+<a class="btn btn-primary" href="/blog/webseries" role="button">Continue reading</a>
+</div>
+</div>
+</div>
+</div>
+</div></div></main>
+<footer id="pattern">
+<!-- Social Media Icons -->
+<div class="social-icons">
+<a href="https://www.linkedin.com/in/aayush-kapil-759959252" target="_blank"><img alt="LinkedIn" height="70" src="/static/img/lin.png" width="70"/></a>
+<a href="#" target="_blank"><img alt="Github" height="100" src="/static/img/github.png" width="90"/></a>
+<a href="#" target="_blank"><img alt="Portfolio" height="70" src="/static/img/port.png" width="70"/></a>
+<a href="#" target="_blank"><img alt="Instagram" height="70" src="/static/img/inst.png" width="70"/></a>
+<!-- Add more social media icons as needed -->
+</div>
+<br/>
+<!-- Copyright Message -->
+<p>© 2023 QuickLoom Blog. All rights reserved.</p>
+<!-- Designer Name -->
+<p class="designer-name">Website designed by <a href="https://www.linkedin.com/in/aayush-kapil-759959252" target="_blank">AAYUSH KAPIL</a></p>
+</footer>
+<!-- Login Modal -->
+<div aria-hidden="true" aria-labelledby="loginModal" class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="loginModalTitle">Login Here</h5>
+<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<form action="/login" method="POST"> <input name="csrfmiddlewaretoken" type="hidden" value="Xgvhw33nDRAMZQP0NhPqsN9F32zTfXLRo3XfqqG2UoWYWkn0BySJ24t2oRSEPVIm"/>
+<div class="form-group">
+<label for="username">Username</label>
+<input class="form-control" id="loginusername" name="loginusername" placeholder="Enter your username " required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="pass">Enter your password </label>
+<input class="form-control" id="loginpassword" name="loginpassword" placeholder="Enter your password " required="" type="password"/>
+</div>
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+</div>
+<div class="modal-footer">
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Remove the container if you want to extend the Footer to full width. -->
+</div></div></div></body></html>
